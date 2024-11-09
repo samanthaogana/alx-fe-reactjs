@@ -12,4 +12,4 @@ return (
 );
 };
 
-export {UserContext, UserProvider};
+export default {UserContext, UserProvider};
