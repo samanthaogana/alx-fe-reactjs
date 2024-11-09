@@ -18,7 +18,7 @@ import { useState } from 'react';
 
      return (
        <div style={{ padding: '20px' }}>
-         <h1>Contact Us</h1>
+         <h1 style={{color: 'green'}}>Contact Us</h1>
          <form onSubmit={handleSubmit}>
            <input
              type="text"
@@ -43,7 +43,7 @@ import { useState } from 'react';
              onChange={handleChange}
              style={{ display: 'block', margin: '10px 0' }}
            />
-           <button type="submit">Send Message</button>
+           <button type="submit" style={{color: 'blue'}}>Send Message</button>
          </form>
        </div>
      );
