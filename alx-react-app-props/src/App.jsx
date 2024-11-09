@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 import UserProfile from './components/UserProfile'
 import Counter from './components/Counter'
 import ProfilePage from './components/ProfilePage'
-import { UserContext, UserProvider } from './components/UserContext'
+import { UserProvider } from './components/UserContext'
 
 
 function App() {
