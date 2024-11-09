@@ -1,19 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import WelcomeMessage from './components/WelcomeMessage'
-import Header from './components/header'
-import MainContent from './components/MainContent'
-import Footer from './components/Footer'
-import UserProfile from './components/UserProfile'
-import Counter from './components/Counter'
-import ProfilePage from './components/ProfilePage'
-import { UserProvider } from './components/UserContext'
-
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import WelcomeMessage from "./components/WelcomeMessage";
+import Header from "./components/header";
+import MainContent from "./components/MainContent";
+import Footer from "./components/Footer";
+import UserProfile from "./components/UserProfile";
+import Counter from "./components/Counter";
+import ProfilePage from "./components/ProfilePage";
+import { UserProvider } from "./components/UserContext";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
   return (
@@ -39,32 +38,33 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <div>
-      <WelcomeMessage />
-    </div>
-    <div>
-      <Header />
-    </div>
-    <div>
-      <MainContent />
-    </div>
-    <div>
-      <Footer />
-    </div>
-    <div>
-      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
-    </div>
-    <div>
-      <Counter />
-    </div>
-
-    <ProfilePage userData={userData} />;
-
-    <UserProvider>
-      <ProfilePage />
-    </UserProvider>
-
+        <WelcomeMessage />
+      </div>
+      <div>
+        <Header />
+      </div>
+      <div>
+        <MainContent />
+      </div>
+      <div>
+        <Footer />
+      </div>
+      <div>
+        <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
+      </div>
+      <div>
+        <Counter />
+      </div>
+      <div>
+        <ProfilePage userData={userData} />;
+      </div>
+      <div>
+        <UserProvider>
+          <ProfilePage />
+        </UserProvider>
+      </div>
     </>
-  )
+  );
 }
 
 export default App;
