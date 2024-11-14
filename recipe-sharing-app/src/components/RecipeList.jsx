@@ -1,4 +1,5 @@
 import { useRecipeStore } from './recipeStore';
+import { Link } from 'react-router-dom';
 
   const RecipeList = () => {
     const recipes = useRecipeStore(state => state.recipes);
@@ -7,8 +8,11 @@ import { useRecipeStore } from './recipeStore';
       <div>
         {recipes.map(recipe => (
           <div key={recipe.id}>
-            <h3>{recipe.title}</h3>
+            <h3>
+            <Link to={`/recipes/${recipe.id}`} state={{ recipeId: recipe.id }}>{recipe.title}</Link>
+              </h3>
             <p>{recipe.description}</p>
+            <Link to={`/edit/${recipe.id}`} state={{ recipeId: recipe.id }}>Edit</Link>
           </div>
         ))}
       </div>

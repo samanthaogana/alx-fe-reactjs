@@ -5,13 +5,30 @@ import './App.css'
 import RecipeList from './components/RecipeList'
 import AddRecipeForm from './components/AddRecipeForm'
 import { useRecipeStore } from './components/recipeStore'
+import RecipeDetails from './components/RecipeDetails'
+import EditRecipeForm from './components/EditRecipeForm'
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
+
+const RecipeDetailsWrapper = (props) => 
+  { const location = useLocation(); 
+    const recipeId = location.state?.recipeId; 
+    return <RecipeDetails recipeId={recipeId} {...props} />; 
+  };
+
+
+  const EditRecipeFormWrapper = (props) => 
+    { const location = useLocation(); 
+      const recipeId = location.state?.recipeId; 
+      return <EditRecipeForm recipeId={recipeId} {...props} />; 
+    };
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <Router>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -37,7 +54,14 @@ function App() {
       </div> 
       <div> 
         <RecipeList /> 
+        <Routes> 
+          <Route path="/" element={<RecipeList />} /> 
+          <Route path="/add" element={<AddRecipeForm />} /> 
+          <Route path="/recipes/:id" element={<RecipeDetailsWrapper />} /> 
+          <Route path="/edit/:id" element={<EditRecipeFormWrapper />} /> 
+          </Routes>
         </div>
+        </Router>
     </>
   )
 }
