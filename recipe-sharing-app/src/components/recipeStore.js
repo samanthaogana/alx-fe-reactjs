@@ -36,7 +36,7 @@ const useRecipeStore = create((set) => ({
       recipe.preparationTime.toString().includes(state.searchTerm)
     )
   })),
-  initializeRecipes: (recipes) => set({ recipes, filteredRecipes: recipes })
+  setRecipes: (recipes) => set({ recipes })
 }));
 
 export { useRecipeStore };
