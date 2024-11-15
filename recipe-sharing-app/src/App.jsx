@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -26,6 +26,14 @@ const RecipeDetailsWrapper = (props) =>
 
 function App() {
   const [count, setCount] = useState(0)
+  const initializeRecipes = useRecipeStore((state) => state.initializeRecipes);
+
+useEffect(() => { 
+  initializeRecipes([ 
+    { id: 1, title: 'Spaghetti Bolognese', description: 'A classic Italian dish.', ingredients: 'spaghetti, beef, tomatoes', preparationTime: 30 }, 
+    { id: 2, title: 'Chicken Curry', description: 'A spicy and savory dish.', ingredients: 'chicken, curry powder, coconut milk', preparationTime: 45 },
+   ]);
+   }, [initializeRecipes]);
 
   return (
     <>

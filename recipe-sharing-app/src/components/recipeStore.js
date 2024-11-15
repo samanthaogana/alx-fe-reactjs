@@ -3,11 +3,17 @@ import { create } from 'zustand';
 const useRecipeStore = create((set) => ({
   recipes: [],
   searchTerm: '',
+  ingredient: '',
+  prepTime: '',
   setSearchTerm: (term) => set({ searchTerm: term }),
+  setIngredient: (ingredient) => set({ ingredient }),
+  setPrepTime: (prepTime) => set({ prepTime }),
   filteredRecipes: [],
   filterRecipes: () => set(state => ({
     filteredRecipes: state.recipes.filter(recipe =>
-      recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+      recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase()) &&
+      recipe.ingredients.toLowerCase().includes(state.ingredient.toLowerCase()) &&
+      recipe.preparationTime.toString().includes(state.prepTime)
     )
   })),
   addRecipe: (newRecipe) => set((state) => ({ recipes: [...state.recipes, newRecipe] })),
@@ -20,7 +26,7 @@ const useRecipeStore = create((set) => ({
     )
   })),
   
-  setRecipes: (recipes) => set({ recipes })
+  initializeRecipes: (recipes) => set({ recipes, filteredRecipes: recipes })
 }));
 
 export { useRecipeStore };
