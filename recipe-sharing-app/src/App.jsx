@@ -7,6 +7,7 @@ import AddRecipeForm from './components/AddRecipeForm'
 import { useRecipeStore } from './components/recipeStore'
 import RecipeDetails from './components/RecipeDetails'
 import EditRecipeForm from './components/EditRecipeForm'
+import SearchBar from './components/SearchBar'
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 
@@ -62,6 +63,9 @@ function App() {
           </Routes>
         </div>
         </Router>
+        <div>
+          <SearchBar />
+        </div>
     </>
   )
 }
