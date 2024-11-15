@@ -8,7 +8,9 @@ import { useRecipeStore } from './components/recipeStore'
 import RecipeDetails from './components/RecipeDetails'
 import EditRecipeForm from './components/EditRecipeForm'
 import SearchBar from './components/SearchBar'
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import FavoritesList from './components/FavoritesList'
+import RecommendationsList from './components/RecommendationsList'
+import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 
 
 const RecipeDetailsWrapper = (props) => 
@@ -50,6 +52,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <nav> 
+        <Link to="/">Home</Link> | <Link to="/favorites">Favorites</Link>
+      </nav>
       <div> 
         <AddRecipeForm /> 
       </div> 
@@ -65,6 +70,9 @@ function App() {
         </Router>
         <div>
           <SearchBar />
+        </div>
+        <div>
+          <RecommendationsList />
         </div>
     </>
   )
