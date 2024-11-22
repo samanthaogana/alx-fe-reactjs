@@ -4,15 +4,27 @@ const RegistrationForm = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username === '' || email === '' || password === '') {
-      alert('All fields are required!');
-      return;
+    const newErrors = {};
+
+    if (!username) {
+      newErrors.username = 'Username is required';
     }
-    
-    console.log('Form submitted:', { username, email, password });
+    if (!email) {
+      newErrors.email = 'Email is required';
+    }
+    if (!password) {
+      newErrors.password = 'Password is required';
+    }
+
+    setErrors(newErrors);
+      
+     if(Object.keys(newErrors).length === 0 ) {
+      console.log('Form submitted:', { username, email, password });
+     }
   };
 
   return (
@@ -24,9 +36,10 @@ const RegistrationForm = () => {
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          required
         />
-      </div>
+        {errors.username ? <div style={{ color: 'red'}}>{errors.username}</div> : null}
+        </div>
+      
       <div>
         <label htmlFor="email">Email:</label>
         <input
@@ -34,9 +47,10 @@ const RegistrationForm = () => {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required
         />
-      </div>
+       {errors.email ? <div style={{ color: 'red' }}>{errors.email}</div> : null}
+         </div>
+
       <div>
         <label htmlFor="password">Password:</label>
         <input
@@ -44,8 +58,8 @@ const RegistrationForm = () => {
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
         />
+        {errors.password ? <div style={{ color: 'red'}}>{errors.password}</div> : null}
       </div>
       <button type="submit">Register</button>
     </form>
