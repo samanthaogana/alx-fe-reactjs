@@ -36,7 +36,7 @@ const FormikForm = () => {
                         <Field type="password" id="password" name="password" />
                         <ErrorMessage name="password" component="div" stye={{ color: 'red' }} />
                     </div>
-                    <button type="submit" disabled={isSubmitting}>
+                    <button type="submit" disabled={isSubmitting}> 
                         Register
                     </button>
                 </Form>
