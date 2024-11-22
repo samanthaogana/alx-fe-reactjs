@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMesage } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'; 
 
 const validationSchema = Yup.object({
@@ -24,17 +24,17 @@ const FormikForm = () => {
                     <div>
                         <label htmlFor="username">Username:</label>
                         <Field type="text" id="username" name="username" />
-                        <ErrorMesage name="username" component="div" style={{ color: 'red' }} />
+                        <ErrorMessage name="username" component="div" style={{ color: 'red' }} />
                     </div>
                     <div>
                         <label htmlFor="email">Email:</label>
                         <Field type="email" id="email" name="email" />
-                        <ErrorMesage name="email" component="div" style={{ color: 'red' }} />
+                        <ErrorMessage name="email" component="div" style={{ color: 'red' }} />
                     </div>
                     <div>
                         <label htmlFor="password">Passowrd:</label>
                         <Field type="password" id="password" name="password" />
-                        <ErrorMesage name="password" component="div" stye={{ color: 'red' }} />
+                        <ErrorMessage name="password" component="div" stye={{ color: 'red' }} />
                     </div>
                     <button type="submit" disabled={isSubmitting}>
                         Register
