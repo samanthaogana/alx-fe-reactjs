@@ -10,16 +10,15 @@ test ('renders TodoList component correctly', () => {
     expect(screen.getByText('Learn React')).toBeInTheDocument();
     expect(screen.getByText('Build a Todo App')).toBeInTheDocument();
     expect(screen.getByText('Master JavaScript')).toBeInTheDocument();
-
     expect(screen.getByPlaceholderText('Add a new Todo')).toBeInTheDocument();
     expect(screen.getByText('Add')).toBeInTheDocument();
 });
 
-test('adds a new Todo', () => {
+test('adds a new todo', () => {
     render(<TodoList />)
 
 
-const input = screen.getByPlaceholderText('Add a new Todo');
+const input = screen.getByPlaceholderText('Add a new todo');
 const addButton = screen.getByText('Add');
 
 fireEvent.change(input, { target: { value: 'Test new todo'} });
