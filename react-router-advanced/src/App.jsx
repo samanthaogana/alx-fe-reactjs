@@ -5,6 +5,8 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Profile from './components/Profile';
 import BlogPost from './components/BlogPost';
+import { AuthProvider } from './components/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 
 const Home = () => { 
@@ -36,6 +38,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <AuthProvider>
       <Router>
         <div>
           <h1>Sam's Blog Post</h1>
@@ -57,6 +60,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+      </AuthProvider>
     </>
   )
 }
