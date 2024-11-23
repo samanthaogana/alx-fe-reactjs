@@ -8,6 +8,7 @@ import BlogPost from './components/BlogPost';
 import AuthProvider from './components/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './components/Login';
+import TodoList from '../../react-todo/src/components/ToDoList';
 
 
 const Home = () => { 
@@ -63,6 +64,10 @@ function App() {
         </div>
       </Router>
       </AuthProvider>
+      <div>
+        <h1>My Todo App</h1>
+        <TodoList />
+      </div>
     </>
   )
 }
