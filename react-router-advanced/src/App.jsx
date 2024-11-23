@@ -5,7 +5,7 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Profile from './components/Profile';
 import BlogPost from './components/BlogPost';
-import { AuthProvider } from './components/AuthContext';
+import AuthProvider from './components/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
 
