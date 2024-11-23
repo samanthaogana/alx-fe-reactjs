@@ -7,6 +7,7 @@ import Profile from './components/Profile';
 import BlogPost from './components/BlogPost';
 import AuthProvider from './components/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import Login from './components/Login';
 
 
 const Home = () => { 
@@ -57,6 +58,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/profile/*" element={<Profile />} />
             <Route path="/blog/:postId" element={<BlogPost />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
       </Router>
