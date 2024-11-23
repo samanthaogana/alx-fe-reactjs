@@ -6,9 +6,17 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import PostsComponent from './components/PostsComponent'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
+const Home = () => 
+  { return <h2>Home Page</h2>; 
+    
+  };
+
+const queryClient = new QueryClient ();
+
+
 function App() {
   const [count, setCount] = useState(0)
-  const queryClient = new QueryClient();
+  
 
   return (
     <>
