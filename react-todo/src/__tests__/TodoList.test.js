@@ -1,6 +1,7 @@
 import React from "react";
 import {fireEvent, render, screen } from '@testing-library/react'
-import TodoList from "../components/ToDoList";
+import '@testing-library/jest-dom'
+import TodoList from "../components/TodoList";
 
 
 test ('renders TodoList component correctly', () => {
@@ -10,7 +11,7 @@ test ('renders TodoList component correctly', () => {
     expect(screen.getByText('Learn React')).toBeInTheDocument();
     expect(screen.getByText('Build a Todo App')).toBeInTheDocument();
     expect(screen.getByText('Master JavaScript')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Add a new Todo')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Add a new todo')).toBeInTheDocument();
     expect(screen.getByText('Add')).toBeInTheDocument();
 });
 
@@ -33,15 +34,25 @@ test('toggles a todo item', () => {
 
     const todoItem = screen.getByText('Learn React');
 
-    expect(todoItem).not.toHaveStyle('text-decoration: line-through');
+    console.log('Initial state:', todoItem.style.textDecoration);
+
+    expect(todoItem).toHaveStyle('text-decoration: none');
 
     fireEvent.click(todoItem);
 
-    expect(todoItem).toHaveStyle('text-decoration: line-through');
+    const updatedTodoItem = screen.getByText('Learn React');
 
-    fireEvent.click(todoItem);
+    console.log('After first click:', updatedTodoItem.style.textDecoration); 
 
-    expect(todoItem).toHaveStyle('text-decoration: line-through');
+    expect(updatedTodoItem).toHaveStyle('text-decoration: line-through');
+
+    fireEvent.click(updatedTodoItem);
+
+    const finalTodoItem = screen.getByText('Learn React');
+
+    console.log('After second click:', finalTodoItem.style.textDecoration);
+
+    expect(finalTodoItem).toHaveStyle('text-decoration: none');
 });
 
 test('deletes a todo item', () => {

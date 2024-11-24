@@ -23,9 +23,11 @@ const TodoList = () => {
 
   
   const toggleTodo = (id) => {
+    console.log('Toggling todo:', id);
     setTodos(todos.map(todo => 
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ));
+    console.log('Todos after toggle', todos);
   };
 
   const deleteTodo = (id) => {
