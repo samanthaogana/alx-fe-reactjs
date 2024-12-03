@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .bg-customGreen {
+        background-color: #bbcdc2
+    }
+}
+
+
+body {
+@apply 
+    bg-customGreen;
+
+}
