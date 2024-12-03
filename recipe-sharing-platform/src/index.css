@@ -3,14 +3,11 @@
 @tailwind utilities;
 
 @layer utilities {
-    .bg-customGreen {
-        background-color: #bbcdc2
-    }
+  .bg-customGreen {
+    background-color: #bbcdc2;
+  }
 }
 
-
 body {
-@apply 
-    bg-customGreen;
-
+  @apply bg-customGreen;
 }
