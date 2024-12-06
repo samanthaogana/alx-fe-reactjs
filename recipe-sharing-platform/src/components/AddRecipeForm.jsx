@@ -4,7 +4,7 @@ const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [steps, setSteps] = useState("");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,13 +26,13 @@ const AddRecipeForm = () => {
     console.log("Steps:", steps);
 
     if (!title) {
-      setError("Title is required");
+      setErrors("Title is required");
       console.log("Validation Error: Title is required");
       return false;
     }
 
     if (!ingredients) {
-      setError("Ingredients are required");
+      setErrors("Ingredients are required");
       console.log("Validation Error: Ingredients are required");
       return false;
     }
@@ -44,18 +44,18 @@ const AddRecipeForm = () => {
     console.log("Ingredients Array:", ingredientsArray);
 
     if (ingredientsArray.length < 2) {
-      setError("Please enter at least two ingredients separated by commas");
+      setErrors("Please enter at least two ingredients separated by commas");
       console.log("Validation Error: Less than two ingredients");
       return false;
     }
 
     if (!steps) {
-      setError("Steps are required");
+      setErrors("Steps are required");
       console.log("Validation Error: Steps are required");
       return false;
     }
 
-    setError("");
+    setErrors("");
     return true;
   };
 
@@ -73,7 +73,7 @@ const AddRecipeForm = () => {
         onSubmit={handleSubmit}
        
       >
-        {error && <div className="text-red-500 mb-4">{error}</div>}
+        {errors && <div className="text-red-500 mb-4">{errors}</div>}
         <div className="mb-4">
           <label htmlFor="title" className="block text-lg font-semibold mb-2">
             Recipe Title
