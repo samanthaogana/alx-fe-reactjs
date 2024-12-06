@@ -5,9 +5,20 @@
 @layer utilities {
   .bg-customGreen {
     background-color: #bbcdc2;
+   
+  }
+}
+
+@layer utilities {
+  .bg-customDarkGreen {
+    background-color: #526b5f
   }
 }
 
 body {
   @apply bg-customGreen;
+}
+
+button {
+  @apply bg-customDarkGreen;
 }
