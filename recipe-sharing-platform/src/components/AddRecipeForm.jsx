@@ -71,7 +71,7 @@ const AddRecipeForm = () => {
       <h1 className="text-2xl font-bold mb-4">Add New Recipe</h1>
       <form
         onSubmit={handleSubmit}
-       
+        className="shadow-sm"
       >
         {errors && <div className="text-red-500 mb-4">{errors}</div>}
         <div className="mb-4">
