@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Search from "./components/Search"
 import './App.css'
 
 function App() {
@@ -7,13 +8,7 @@ function App() {
   return (
     <>
       <div>
-<BrowserRouter>
-<Routes>
-  <Route>
-    
-  </Route>
-</Routes>
-</BrowserRouter>
+        <Search />
        </div>
     </>
   )
