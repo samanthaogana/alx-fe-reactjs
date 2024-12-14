@@ -56,7 +56,7 @@ const Search = () => {
 
            
             {loading && <p>Loading...</p>}
-            {error && <p>Looks like we can't find the user.</p>}
+            {error && <p>Looks like we cant find the user.</p>}
             {usersData.length > 0 && (
                 <div className="mt-4 space-y-4">
                     {usersData.map(user => (
